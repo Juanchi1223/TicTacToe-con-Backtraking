@@ -17,7 +17,7 @@ public class main {
         *       e. Numero de Turno
         *       f. cls de consola
         *
-        * --- ver como funciona MinMAx para explicarlo
+        *   --- ver como funciona MinMAx para poder explicarlo
         */
 
         TaTeTi juego = new TaTeTi(); juego.inicializar();
