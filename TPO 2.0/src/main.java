@@ -9,14 +9,14 @@ public class main {
         *   5. -HECHO- Funcion para q arranque la maquina (VER COMO LO HIZO JUANI ;) )
         *
         * todo
-        *   6. Presentacion:
-        *       a. Cambiar a español
-        *       b. Tabla posiciones Guia
-        *       c. Cambiar ingresos para (ingresado-1)
-        *       d. Simbolos y referencias
-        *       e. Numero de Turno
+        *   Presentacion:
+        *       a. -HECHO- Cambiar a español
+        *       b. -HECHO- Tabla posiciones Guia
+        *       c. -HECHO- Cambiar ingresos para (ingresado-1)
+        *       d. Simbolos y referencias (podemos poner un nombre a las clases)
+        *       e. -HECHO- Numero de Turno
         *       f. cls de consola
-        *       g. Ganador aclarar
+        *       g. -HECHO- Ganador aclarar
         *
         *   --- ver como funciona MinMAx para poder explicarlo
         */
@@ -27,11 +27,24 @@ public class main {
         Jugador h = new Humano();
 
         int pos;
+        int NroTurno = 0;
 
-        juego.Turno();
+        System.out.println("Tablero Guia (Posiciones): ");
+
+        System.out.println(" 1 |  2 |  3");
+        System.out.println(" 4 |  5 |  6");
+        System.out.println(" 7 |  8 |  9");
+
+        if(juego.Turno())
+            NroTurno++;
+
         juego.mostrar();
 
         for(;;){
+            NroTurno++;
+            System.out.println();
+            System.out.println("Turno Nro: " + NroTurno );
+
             pos = h.jugar(juego);
             juego.setPosicion(pos, h);
 

@@ -83,25 +83,25 @@ public class TaTeTi {
         Jugador auxH = new Humano();
 
         if (jugadorGano(auxH)){
-            System.out.println("Gano" + auxH.getSimbolo());
+            System.out.println();
+            System.out.println("    Gano " + auxH.getNombre());
             return true;
         }
         if (jugadorGano(auxPc)) {
-            System.out.println("Gano" + auxPc.getSimbolo());
+            System.out.println();
+            System.out.println("    Gano " + auxPc.getNombre());
             return true;
         }
         if (lleno()){
-            System.out.println("Empate");
+            System.out.println();
+            System.out.println("    Empate");
             return true;
         }
         return false;
     }
-    public void Turno(){
-        /*
-        *   Solo se le agerga un turno mas y se le indica donde quiere posicionar la ficha
-        *   sele puede poner antes de que arranque el for infinito
-        */
-
+    public boolean Turno(){
+        int pos;
+        boolean flag = false;
         Scanner input = new Scanner(System.in);
 
         System.out.println("Quien arranca a jugar (0 para vos, 1 para maquina): ");
@@ -112,18 +112,19 @@ public class TaTeTi {
             x = input.nextInt();
         }
 
-        int pos;
         if (x == 1){
+            flag = true;
             mostrar();
             System.out.println("Donde queres q juege la maquina?? : ");
             pos = input.nextInt();
 
-            while(!(0 <= pos && pos <= 8)) {
-                System.out.println("Enter the square to fix spot(1-9): ");
+            while(!(1 <= pos && pos <= 9)) {
+                System.out.println("Donde queres q juege la maquina?? : ");
                 pos = input.nextInt();
             }
 
-            setPosicion(pos, new IA());
+            setPosicion(pos-1, new IA());
         }
+        return flag;
     }
 }

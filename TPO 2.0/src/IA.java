@@ -2,7 +2,7 @@ import java.util.Vector;
 
 public class IA extends Jugador{
     public IA() {
-        super('O');
+        super('O', "la Computadora");
     }
     private Vector<Integer> espaciosLibres(TaTeTi x){
         Vector<Integer> result = new Vector<Integer>();
@@ -34,24 +34,25 @@ public class IA extends Jugador{
         char maxJg = new Humano().getSimbolo();
         char Jg;
 
-        if(x == maxJg)
+        if(x == maxJg)                  // Cambian los sibmolos ; )
             Jg = new IA().getSimbolo();
         else
             Jg = maxJg;
 
+        PosInd casoBase;
+
         if(tab.Gano()){
-            PosInd r;
             if(Jg == maxJg){
-                r = new PosInd(-1, espaciosLibres(tab).size() + 1); // uso -1 como un parametro imposible solo para remplazar despues de salir del caso base
+                casoBase = new PosInd(-1, espaciosLibres(tab).size() + 1); // uso -1 como un parametro imposible solo para remplazar despues de salir del caso base, sumamos 1 en el caso q se llene la por completo
             }
                else{
-                r = new PosInd(-1, -1 * espaciosLibres(tab).size() + 1);
+                casoBase = new PosInd(-1, -1 * (espaciosLibres(tab).size() + 1));
             }
-            return r;
+            return casoBase;
         }
         else if(tab.lleno()){
-            PosInd r =  new PosInd(-1, 0); // empate = 0
-            return r;
+            casoBase =  new PosInd(-1, 0); // empate = 0
+            return casoBase;
         }
 
         PosInd resultado;
@@ -83,10 +84,7 @@ public class IA extends Jugador{
         return resultado;
     }
     public int jugar(TaTeTi x){
-        int pos;
-
-        pos = minmax(x, super.getSimbolo()).getPos();
+        int pos = minmax(x, super.getSimbolo()).getPos();
         return pos;
-
     }
 }
