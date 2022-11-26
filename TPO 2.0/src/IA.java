@@ -42,7 +42,7 @@ public class IA extends Jugador{
         if(tab.Gano()){
             PosInd r;
             if(Jg == maxJg){
-                r = new PosInd(-1, espaciosLibres(tab).size() + 1); // -1 es un parametro imposible solo para remplazar
+                r = new PosInd(-1, espaciosLibres(tab).size() + 1); // uso -1 como un parametro imposible solo para remplazar despues de salir del caso base
             }
                else{
                 r = new PosInd(-1, -1 * espaciosLibres(tab).size() + 1);
@@ -57,9 +57,9 @@ public class IA extends Jugador{
         PosInd resultado;
 
         if (x == maxJg)
-            resultado = new PosInd(-1,-100000);
+            resultado = new PosInd(-1,-1);
         else
-            resultado = new PosInd(-1,1000000);
+            resultado = new PosInd(-1,1);
 
         Vector<Integer> espacios = espaciosLibres(tab);
 
@@ -67,10 +67,7 @@ public class IA extends Jugador{
             TaTeTi variante = variante(tab, i, x);
             PosInd camino;
 
-            if (x == maxJg)
-                camino = minmax(variante, 'O');
-            else
-                camino = minmax(variante, 'X');
+            camino = minmax(variante, Jg);
 
             camino.setPos(i);
 
@@ -87,9 +84,9 @@ public class IA extends Jugador{
     }
     public int jugar(TaTeTi x){
         int pos;
-        Jugador auxPC = new IA();
 
-        pos = minmax(x, auxPC.getSimbolo()).getPos();
+        pos = minmax(x, super.getSimbolo()).getPos();
         return pos;
+
     }
 }

@@ -1,4 +1,5 @@
 import java.security.KeyStore;
+import java.util.Scanner;
 
 public class TaTeTi {
     private char[] tablero;
@@ -94,5 +95,35 @@ public class TaTeTi {
             return true;
         }
         return false;
+    }
+    public void Turno(){
+        /*
+        *   Solo se le agerga un turno mas y se le indica donde quiere posicionar la ficha
+        *   sele puede poner antes de que arranque el for infinito
+        */
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Quien arranca a jugar (0 para vos, 1 para maquina): ");
+        int x = input.nextInt();
+
+        while(x != 1 && x != 0){
+            System.out.println("Quien arranca a jugar (0 para vos, 1 para maquina): ");
+            x = input.nextInt();
+        }
+
+        int pos;
+        if (x == 1){
+            mostrar();
+            System.out.println("Donde queres q juege la maquina?? : ");
+            pos = input.nextInt();
+
+            while(!(0 <= pos && pos <= 8)) {
+                System.out.println("Enter the square to fix spot(1-9): ");
+                pos = input.nextInt();
+            }
+
+            setPosicion(pos, new IA());
+        }
     }
 }

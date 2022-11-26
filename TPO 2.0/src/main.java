@@ -4,9 +4,9 @@ public class main {
         *todo
         *   1. Documentar Funciones
         *   2. Estrategia Ganadora
-        *   3. Ver indices cambiar por 1 o -1
+        *   3. -HECHO- Ver indices cambiar por 1 o -1
         *   4. Hacer Informe en PDF (Complejidad de cada funcion)
-        *   5. Funcion para q arranque la maquina
+        *   5. -HECHO- Funcion para q arranque la maquina (VER COMO LO HIZO JUANI ;) )
         *
         * todo
         *   6. Presentacion:
@@ -16,6 +16,7 @@ public class main {
         *       d. Simbolos y referencias
         *       e. Numero de Turno
         *       f. cls de consola
+        *       g. Ganador aclarar
         *
         *   --- ver como funciona MinMAx para poder explicarlo
         */
@@ -27,7 +28,9 @@ public class main {
 
         int pos;
 
+        juego.Turno();
         juego.mostrar();
+
         for(;;){
             pos = h.jugar(juego);
             juego.setPosicion(pos, h);
@@ -44,29 +47,5 @@ public class main {
             juego.mostrar();
         }
         juego.mostrar();
-
-        /*
-        bot = ComputerPlayer(self.botPlayer)
-        human = humanPLayer(self.humanPLayer)
-        while True:
-            print(f"   Player {self.humanPLayer} turn")
-            self.show_board()                   # muestra en pantalla la tabla 1
-
-            #Human
-            square = human.human_move(self.board) # pregunta casilla
-            self.board[square] = self.humanPLayer   # agrega casilla
-        if self.checkWinner():                  # se fija si ganaron
-                break
-
-            #Bot
-            square = bot.machine_move(self.board)   # pregunta casilla al bot
-            self.board[square] = self.botPlayer     # agrega casilla
-            if self.checkWinner():                  # se fija si ganaron
-                break
-
-            # showing the final view of board
-            print()
-            self.show_board()                       # muestra en pantalla la tabla
-        */
     }
 }
