@@ -73,18 +73,18 @@ public class IA extends Jugador{
             camino.setPos(i);
 
             if(x == maxJg){
-                if (camino.getScore() > resultado.getScore())
+                if (camino.getIndice() > resultado.getIndice())
                     resultado = camino;
             }
             else{
-                if (camino.getScore() < resultado.getScore())
+                if (camino.getIndice() < resultado.getIndice())
                     resultado = camino;
             }
         }
         return resultado;
     }
-    public int jugar(TaTeTi x){
-        int pos = minmax(x, super.getSimbolo()).getPos();
+    public int jugar(TaTeTi tab){
+        int pos = minmax(tab, super.getSimbolo()).getPos();
         return pos;
     }
 }

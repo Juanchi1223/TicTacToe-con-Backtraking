@@ -1,17 +1,17 @@
 public class PosInd {
     int pos;
-    int score;
+    int indice;
 
     public PosInd(int p,int s){
         this.pos = p;
-        this.score = s;
+        this.indice = s;
     }
 
     public int getPos() {
         return pos;
     }
-    public int getScore() {
-        return score;
+    public int getIndice() {
+        return indice;
     }
 
     public void setPos(int pos) {
