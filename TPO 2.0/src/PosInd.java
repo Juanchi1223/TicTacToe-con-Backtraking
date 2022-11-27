@@ -2,14 +2,15 @@ public class PosInd {
     int pos;
     int indice;
 
-    public PosInd(int p,int s){
+    public PosInd(int p,int i){
         this.pos = p;
-        this.indice = s;
+        this.indice = i;
     }
 
     public int getPos() {
         return pos;
     }
+
     public int getIndice() {
         return indice;
     }

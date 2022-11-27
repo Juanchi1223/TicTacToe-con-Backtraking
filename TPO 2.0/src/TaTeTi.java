@@ -67,6 +67,7 @@ public class TaTeTi {
         else
             return false;
     }
+
     public boolean Gano(){
         Jugador auxPc = new IA();
         Jugador auxH = new Humano();
@@ -78,6 +79,7 @@ public class TaTeTi {
         else
             return false;
     }
+
     public boolean JuegoTermino(){
         Jugador auxPc = new IA();
         Jugador auxH = new Humano();
@@ -99,6 +101,7 @@ public class TaTeTi {
         }
         return false;
     }
+
     public boolean Turno(){
         int pos;
         boolean flag = false;

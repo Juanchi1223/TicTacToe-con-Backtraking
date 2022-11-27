@@ -4,6 +4,7 @@ public class IA extends Jugador{
     public IA() {
         super('O', "la Computadora");
     }
+
     private Vector<Integer> espaciosLibres(TaTeTi x){
         Vector<Integer> result = new Vector<Integer>();
         char[] listaTab = x.getTablero();
@@ -15,6 +16,7 @@ public class IA extends Jugador{
 
         return result;
     }
+
     private TaTeTi variante(TaTeTi tab, int casillero, char jg){
         char[] original = new char[9];
         TaTeTi var;
@@ -32,6 +34,7 @@ public class IA extends Jugador{
 
         return var;
     }
+
     private PosInd minmax(TaTeTi tab, char x){
         char minJg = new Humano().getSimbolo(); // minJg = 'X'
         char Jg;
@@ -85,10 +88,10 @@ public class IA extends Jugador{
         }
         return resultado;
     }
+
     public int jugar(TaTeTi tab){
         PosInd pos = minmax(tab, super.getSimbolo());
 
-        System.out.println(pos.getIndice());
         if(pos.getIndice() > 0)
             System.out.println("Ya te Gane :) ");
 

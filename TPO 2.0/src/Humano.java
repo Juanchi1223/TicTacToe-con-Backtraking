@@ -5,6 +5,7 @@ public class Humano extends Jugador{
     public Humano() {
         super('X', "el Jugador");
     }
+
     public int jugar(TaTeTi tab){
         int pos;
 
