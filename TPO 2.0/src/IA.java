@@ -33,7 +33,7 @@ public class IA extends Jugador{
         return var;
     }
     private PosInd minmax(TaTeTi tab, char x){
-        char minJg = new Humano().getSimbolo();
+        char minJg = new Humano().getSimbolo(); // minJg = 'X'
         char Jg;
 
         if(x == minJg)                  // Cambian los sibmolos ; )
@@ -83,12 +83,12 @@ public class IA extends Jugador{
                     resultado = camino;
             }
         }
-
         return resultado;
     }
     public int jugar(TaTeTi tab){
         PosInd pos = minmax(tab, super.getSimbolo());
 
+        System.out.println(pos.getIndice());
         if(pos.getIndice() > 0)
             System.out.println("Ya te Gane :) ");
 
