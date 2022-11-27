@@ -7,10 +7,12 @@ public class IA extends Jugador{
     private Vector<Integer> espaciosLibres(TaTeTi x){
         Vector<Integer> result = new Vector<Integer>();
         char[] listaTab = x.getTablero();
+
         for(int i = 0; i < 9; i++){
             if(listaTab[i] == ' ')
                 result.add(i);
         }
+
         return result;
     }
     private TaTeTi variante(TaTeTi tab, int casillero, char jg){

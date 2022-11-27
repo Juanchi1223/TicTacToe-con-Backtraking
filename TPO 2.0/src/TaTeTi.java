@@ -115,11 +115,11 @@ public class TaTeTi {
         if (x == 1){
             flag = true;
             mostrar();
-            System.out.println("Donde queres q juege la maquina?? : ");
+            System.out.println("Donde queres que juege la maquina? : ");
             pos = input.nextInt();
 
             while(!(1 <= pos && pos <= 9)) {
-                System.out.println("Donde queres q juege la maquina?? : ");
+                System.out.println("Donde queres que juege la maquina? : ");
                 pos = input.nextInt();
             }
 
