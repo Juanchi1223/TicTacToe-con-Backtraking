@@ -3,7 +3,7 @@ public class main {
         /*
         *todo
         *   1. Documentar Funciones
-        *   2. Estrategia Ganadora
+        *   2. -HECHO- Estrategia Ganadora
         *   3. Pode Alfa Beta (Codigo minmax n: 75)
         *   3. -HECHO- Ver indices cambiar por 1 o -1
         *   4. Hacer Informe en PDF (Complejidad de cada funcion)

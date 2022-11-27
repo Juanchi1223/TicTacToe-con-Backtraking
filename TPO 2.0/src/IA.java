@@ -33,22 +33,22 @@ public class IA extends Jugador{
         return var;
     }
     private PosInd minmax(TaTeTi tab, char x){
-        char maxJg = new Humano().getSimbolo();
+        char minJg = new Humano().getSimbolo();
         char Jg;
 
-        if(x == maxJg)                  // Cambian los sibmolos ; )
+        if(x == minJg)                  // Cambian los sibmolos ; )
             Jg = new IA().getSimbolo();
         else
-            Jg = maxJg;
+            Jg = minJg;
 
         PosInd casoBase;
 
         if(tab.Gano()){
-            if(Jg == maxJg){
-                casoBase = new PosInd(-1, espaciosLibres(tab).size() + 1); // uso -1 como un parametro imposible solo para remplazar despues de salir del caso base, sumamos 1 en el caso q se llene la por completo
+            if(Jg == minJg){
+                casoBase = new PosInd(-1, -1 * (espaciosLibres(tab).size() + 1)); // uso -1 como un parametro imposible solo para remplazar despues de salir del caso base, sumamos 1 en el caso q se llene la por completo
             }
                else{
-                casoBase = new PosInd(-1, -1 * (espaciosLibres(tab).size() + 1));
+                casoBase = new PosInd(-1, espaciosLibres(tab).size() + 1);
             }
             return casoBase;
         }
@@ -59,10 +59,10 @@ public class IA extends Jugador{
 
         PosInd resultado;
 
-        if (x == maxJg)
-            resultado = new PosInd(-1,-1);
-        else
+        if (x == minJg)
             resultado = new PosInd(-1,1);
+        else
+            resultado = new PosInd(-1,-1);
 
         Vector<Integer> espacios = espaciosLibres(tab);
 
@@ -74,19 +74,24 @@ public class IA extends Jugador{
 
             camino.setPos(i);
 
-            if(x == maxJg){
-                if (camino.getIndice() > resultado.getIndice())
-                    resultado = camino;
-            }
-            else{
+            if(x == minJg){
                 if (camino.getIndice() < resultado.getIndice())
                     resultado = camino;
             }
+            else{
+                if (camino.getIndice() > resultado.getIndice())
+                    resultado = camino;
+            }
         }
+
         return resultado;
     }
     public int jugar(TaTeTi tab){
-        int pos = minmax(tab, super.getSimbolo()).getPos();
-        return pos;
+        PosInd pos = minmax(tab, super.getSimbolo());
+
+        if(pos.getIndice() > 0)
+            System.out.println("Ya te Gane :) ");
+
+        return pos.getPos();
     }
 }
